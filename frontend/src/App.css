@@ -1,0 +1,72 @@
+#root {
+  width: 100vw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  min-height: 200px;
+  min-width: max-content;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+}
+
+.textField {
+  width: fit-content;
+  min-width: min-content;
+  transition: cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.title {
+  line-height: normal;
+}
+
+.btn {
+  border-radius: 5px;
+  background-color: yellow;
+  color: black;
+  width: fit-content;
+  height: fit-content;
+  padding: 4px;
+  font-size: small;
+  line-height: 12px;
+  border: 1px solid black;
+}
+
+.styleForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.btn-add {
+  background-color: #3f49ca;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 7rem;
+}
