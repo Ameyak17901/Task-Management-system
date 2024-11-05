@@ -5,7 +5,6 @@ export async function getTasks() {
     throw new Error(response.statusText);
   }
   const data = await response.json();
-  console.log(data);
   return data;
 }
 

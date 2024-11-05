@@ -2,6 +2,7 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { createTask } from "../../services/fetchData";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const StyledBox = styled.div`
   display: flex;
@@ -37,6 +38,7 @@ const AddTaskForm = () => {
       setFormData({ task: "", status: "" });
     }
     setFormData({ task: "", status: "" });
+    toast.success('Added successfully')
     navigate("/");
   };
 

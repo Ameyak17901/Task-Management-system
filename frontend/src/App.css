@@ -50,6 +50,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  gap: 2;
 }
 
 .status {
@@ -65,8 +66,9 @@
 }
 
 .btn-add {
-  background-color: #3f49ca;
+  background-color: #7882ee;
   width: fit-content;
   height: fit-content;
   border-radius: 7rem;
+  border: 1px solid black;
 }

@@ -43,7 +43,6 @@ def createTask(task):
 def modify_task(task,id):
     try:
         cur = mydb.cursor()
-        print(task)
         cur.execute(f"update tasks set task = '{task.task}', status = '{task.status}' where id = {id}")
         mydb.commit()
         print(cur.rowcount)

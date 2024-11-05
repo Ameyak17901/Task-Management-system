@@ -2,7 +2,6 @@ import { useTasks } from "../contexts/TasksProvider";
 import { styled } from "styled-components";
 import Task from "./Task";
 import { useState } from "react";
-import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 const StyledBoard = styled.div`
   display: grid;
@@ -46,7 +45,6 @@ const StyledSelect = styled.select`
 
 const Tasks = () => {
   const data = useTasks();
-  console.log(data);
   const [filter, setFilter] = useState("All");
   const navigate = useNavigate();
 
@@ -71,14 +69,14 @@ const Tasks = () => {
         </StyledFilter>
         <StyledBoard>
           {filteredTasks.map((task) => (
-            <Task key={task.id} task={task} />
+            <Task key={task.task} task={task} />
           ))}
         </StyledBoard>
         {filteredTasks.length === 0 && <p>No tasks Found...</p>}
       </StyledBox>
       <StyledAddTask>
         <button className="btn-add" onClick={() => navigate("/task")}>
-          <IoAddCircleOutline />
+          Add
         </button>
       </StyledAddTask>
     </StyledDashboard>

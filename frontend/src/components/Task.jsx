@@ -46,8 +46,7 @@ const Task = ({ task }) => {
   const navigate = useNavigate();
 
   const handleDelete = async (id) => {
-    const res = await deleteTask(id);
-    console.log(res);
+    await deleteTask(id);
     toast.success("Deleted successfully...");
   };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { editTask } from "../../services/fetchData";
+import toast from "react-hot-toast";
 
 const colorTypes = ["Pending", "In Progress", "Completed"];
 
@@ -28,7 +29,6 @@ const EditTaskForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const task = location.state;
-  console.log(task);
   const [formData, setFormData] = useState({
     task: task?.task || "",
     status: task?.status || "",
@@ -42,6 +42,7 @@ const EditTaskForm = () => {
   const handleSubmit = async (data) => {
     const res = await editTask(data, task.id);
     if (res.status === 200) {
+      toast.success("Updated successfully");
       navigate("/");
     }
   };
