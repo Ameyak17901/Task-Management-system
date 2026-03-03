@@ -1,47 +1,7 @@
 import { useTasks } from "../contexts/TasksProvider";
-import { styled } from "styled-components";
 import Task from "./Task";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const StyledBoard = styled.div`
-  display: grid;
-  grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr;
-  gap: 50px;
-`;
-
-const StyledBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  margin-top: 1rem;
-  width: fit-content;
-  z-index: 1000px;
-  max-width: 80vw;
-`;
-
-const StyledFilter = styled.div`
-  display: flex;
-  justify-content: flex-start;
-`;
-
-const StyledDashboard = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2;
-`;
-
-const StyledAddTask = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 25px;
-  min-width: fit-content;
-  background-color: inherit;
-`;
-
-const StyledSelect = styled.select`
-  background-color: #f0f4f3;
-  color: #312e2e;
-`;
 
 const Tasks = () => {
   const data = useTasks();
@@ -56,30 +16,30 @@ const Tasks = () => {
     filter === "All" ? data : data?.filter((task) => task.status === filter);
 
   return (
-    <StyledDashboard>
+    <div className="flex flex-col gap-2">
       <h4>Tasks</h4>
-      <StyledBox>
-        <StyledFilter>
-          <StyledSelect onClick={handleFilter}>
+      <div>
+        <div>
+          <select onClick={handleFilter}>
             <option>All</option>
             <option>Pending</option>
             <option>In Progress</option>
             <option>Completed</option>
-          </StyledSelect>
-        </StyledFilter>
-        <StyledBoard>
+          </select>
+        </div>
+        <div>
           {filteredTasks.map((task) => (
             <Task key={task.task} task={task} />
           ))}
-        </StyledBoard>
+        </div>
         {filteredTasks.length === 0 && <p>No tasks Found...</p>}
-      </StyledBox>
-      <StyledAddTask>
+      </div>
+      <div>
         <button className="btn-add" onClick={() => navigate("/task")}>
           Add
         </button>
-      </StyledAddTask>
-    </StyledDashboard>
+      </div>
+    </div>
   );
 };
 

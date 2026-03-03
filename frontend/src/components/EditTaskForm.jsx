@@ -1,29 +1,9 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { editTask } from "../../services/fetchData";
 import toast from "react-hot-toast";
 
 const colorTypes = ["Pending", "In Progress", "Completed"];
-
-const StyledBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledField = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-const StyledButtonBox = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  align-items: center;
-`;
 
 const EditTaskForm = () => {
   const location = useLocation();
@@ -48,13 +28,13 @@ const EditTaskForm = () => {
   };
 
   return (
-    <StyledBox>
+    <div>
       <form className="form">
         <div className="fields">
           <div className="">
             <h3>Edit</h3>
           </div>
-          <StyledField>
+          <div>
             <label htmlFor="task">Task</label>
             <input
               type="text"
@@ -63,7 +43,7 @@ const EditTaskForm = () => {
               value={formData.task}
               onChange={handleChange}
             />
-          </StyledField>
+          </div>
           <div className="status">
             <label htmlFor="status">Status</label>
             <select name="status" onClick={handleChange}>
@@ -74,17 +54,13 @@ const EditTaskForm = () => {
             </select>
           </div>
         </div>
-        <StyledButtonBox>
-          <button
-            className="btn"
-            type="button"
-            onClick={() => handleSubmit(formData)}
-          >
+        <div>
+          <button type="button" onClick={() => handleSubmit(formData)}>
             Update
           </button>
-        </StyledButtonBox>
+        </div>
       </form>
-    </StyledBox>
+    </div>
   );
 };
 
